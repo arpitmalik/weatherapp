@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-1": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "start": "node ./server/index.js",
+    "start": "babel-node ./src/server/server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-node": "0.0.1-security",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-stage-1": "^6.1.18",
     "express": "^4.17.1",
     "lodash": "^3.10.1",
