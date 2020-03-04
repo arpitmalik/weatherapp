@@ -6,12 +6,15 @@ const ROOT_URL = 'https://api.openweathermap.org/data/2.5/forecast?appid=' + API
 export const FETCH_WEATHER = 'FETCH_WEATHER'; //VARIABLE THAT HOLDS ACTION TYPE
 
 //action creator
-export function fetchWeather(city){
+export async function fetchWeather (city) {
     const url = `${ROOT_URL}&q=${city},us`;
-    const request = axios.get(url);
-
-    return{
-        type: FETCH_WEATHER,
-        payload: request //returning promise as payload
-    };
+    try {
+        const request = await axios.get(url);    
+        return{
+            type: FETCH_WEATHER,
+            payload: request //returning promise as payload
+        };
+    } catch (error) {
+        alert("This state could not be found.")
+    }
 }

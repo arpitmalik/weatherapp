@@ -6,6 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <div>Search a United State Province (Boston, Toronto):</div>
         <SearchBar />
         <WeatherList />
       </div>
